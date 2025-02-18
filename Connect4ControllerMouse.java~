@@ -1,0 +1,72 @@
+/** Connect4MouseListener Class
+  * Class used for observing clicks on the GUI.
+  * @since Jan 12, 2023
+  * @author Ahmad Bhutta
+  */
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+
+public class Connect4ControllerMouse implements MouseListener {
+  public Connect4Model model;
+  public JLabel test;
+  public JPanel [] rowCircle = new JPanel [7];
+  
+  
+
+  
+
+  
+
+  
+  
+  public Connect4ControllerMouse( Connect4Model modelGui, JPanel[] circlePanel)
+    
+  {
+    this.test = test;
+    this.model = modelGui;
+    this.rowCircle = circlePanel;
+ 
+  }
+  
+  
+  @Override
+  public void mouseClicked(MouseEvent e) {       
+    for (int x =0; x<rowCircle.length; x++) 
+    {
+      if (e.getSource() == rowCircle[x]) {
+        model.mouseProcess(x);
+        break; 
+        
+      }
+      
+    }
+    
+    
+    
+  }
+  
+  @Override
+  public void mousePressed(MouseEvent e) {
+    
+  }
+  
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    
+  }
+  
+  
+  
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    
+    
+  }
+  
+  @Override
+  public void mouseExited(MouseEvent e) {
+    
+  }
+}

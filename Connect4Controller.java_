@@ -1,0 +1,95 @@
+/* Controller class
+ * The controller for guessing
+ * Date Created:  Dec 13, 2022
+ * @author  W. Couch
+ */ 
+//package SwingExample;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Connect4Controller extends Object implements ActionListener
+{
+  private refMouseModel game;            //The Model used to describe the game /
+  //The component linked to the controller
+  private refMouseGUI view;
+  private JTextField gameRound;
+  private int numOfrounds;
+  
+  
+  
+  
+  
+  
+  /* Default constructor
+   * Links the component to the Model
+   * @param aGame          The Model describing game behaviour
+   * @param aTextField     The component being interacted with
+   */ 
+  public Connect4Controller(refMouseGUI gui, JTextField round)
+  {
+    this.view=gui;
+    this.gameRound = round;
+    
+  }
+  
+  /** Receives the guess (should be H or T) the user entered 
+    * @param e      The event sent from the textbox component
+    */ 
+  public void actionPerformed(ActionEvent e)
+  {
+    String playerChoice = "";
+    //checks what button is pressed
+    
+    playerChoice =  e.getActionCommand ();
+    
+    if(playerChoice.equalsIgnoreCase("Play Game"))
+    {
+      
+      view.playGameRounds();
+    }
+    
+    if(playerChoice.equalsIgnoreCase("Help"))
+      
+    {
+      view.helpView();
+      
+      
+    }
+    
+    if(playerChoice.equalsIgnoreCase(" <- Return"))
+    {
+      view.returnToMenu2(); 
+    }
+    if(playerChoice.equalsIgnoreCase("Quit")) {
+      System.exit(0);
+      
+    }
+    
+    if(playerChoice.equalsIgnoreCase("Start")) {
+      int round; 
+      try {
+        round = Integer.parseInt(this.gameRound.getText());
+        this.game.setRounds(round);
+         view.playGame();
+      } catch (NumberFormatException ex)
+      {
+        this.gameRound.setText("Invalid"); 
+        
+      }
+     
+      
+      
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }// end of actionPerformed
+}//end of class
+
